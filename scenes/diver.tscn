@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cemsgg3ea1klp"]
+
+[ext_resource type="Script" uid="uid://c06mhapgr3npg" path="res://scripts/diver.gd" id="1_5hnfc"]
+[ext_resource type="Texture2D" uid="uid://qi7khjid0vua" path="res://icon.svg" id="1_cgobh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qu30y"]
+size = Vector2(128, 129.5)
+
+[node name="Diver" type="CharacterBody2D" unique_id=1465426878]
+script = ExtResource("1_5hnfc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1265838356]
+position = Vector2(0, -64)
+texture = ExtResource("1_cgobh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1424463138]
+position = Vector2(1, -64.75)
+shape = SubResource("RectangleShape2D_qu30y")
