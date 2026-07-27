@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b7pv6b5rttlmh"]
+
+[ext_resource type="Script" uid="uid://daytsjyb3dx75" path="res://scripts/win_scene.gd" id="1_aw8vk"]
+[ext_resource type="FontFile" uid="uid://dgl06k4aykg1d" path="res://assets/placeholder/seriesorbit/SERIO___.TTF" id="1_p78a6"]
+[ext_resource type="Texture2D" uid="uid://ywtmwrxqgxrj" path="res://assets/win_splash.png" id="2_ecqtd"]
+[ext_resource type="AudioStream" uid="uid://vrfh1mwjynqi" path="res://assets/sfx/Sunburn.ogg" id="4_7yt3q"]
+
+[node name="WinScene" type="Node2D" unique_id=404861967]
+script = ExtResource("1_aw8vk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1152879438]
+
+[node name="Splash" type="Sprite2D" parent="CanvasLayer" unique_id=1936996746]
+position = Vector2(580, 328)
+texture = ExtResource("2_ecqtd")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1019490505]
+z_index = 5
+offset_left = 306.0
+offset_top = 549.0
+offset_right = 806.0
+offset_bottom = 649.0
+theme_override_colors/default_color = Color(0, 0.5673332, 0.92, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/normal_font = ExtResource("1_p78a6")
+theme_override_font_sizes/normal_font_size = 81
+text = "You win!"
+fit_content = true
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer" unique_id=1754377499]
+z_index = 5
+offset_left = 316.0
+offset_top = 507.0
+offset_right = 816.0
+offset_bottom = 607.0
+theme_override_fonts/normal_font = ExtResource("1_p78a6")
+theme_override_font_sizes/normal_font_size = 48
+text = "Congratulations!"
+fit_content = true
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SceneLengthTimer" type="Timer" parent="." unique_id=311348247]
+wait_time = 7.0
+autostart = true
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=743174599]
+stream = ExtResource("4_7yt3q")
+bus = &"Music"
+
+[connection signal="timeout" from="SceneLengthTimer" to="." method="_on_scene_length_timer_timeout"]

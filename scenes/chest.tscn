@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dta6eage02ao5"]
+
+[ext_resource type="Texture2D" uid="uid://darcai0bwkygv" path="res://assets/chest.png" id="1_oii8l"]
+[ext_resource type="Script" uid="uid://ndod0lwe2u78" path="res://scenes/chest.gd" id="1_sy5e1"]
+[ext_resource type="AudioStream" uid="uid://dxksfodqmjari" path="res://assets/sfx/ka-ching.mp3" id="3_gqd3d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qu30y"]
+size = Vector2(80, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk0ty"]
+size = Vector2(93, 83)
+
+[node name="Chest" type="CharacterBody2D" unique_id=1158515040]
+script = ExtResource("1_sy5e1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1096239276]
+position = Vector2(7, -59)
+texture = ExtResource("1_oii8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=133991899]
+position = Vector2(8, -40.5)
+shape = SubResource("RectangleShape2D_qu30y")
+
+[node name="contactArea2D" type="Area2D" parent="." unique_id=79489869]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="contactArea2D" unique_id=972896702]
+position = Vector2(7.5, -43.5)
+shape = SubResource("RectangleShape2D_yk0ty")
+debug_color = Color(0.8030531, 0.5799841, 9.62615e-07, 0.41960785)
+
+[node name="ASPKaching" type="AudioStreamPlayer2D" parent="." unique_id=1015186054]
+stream = ExtResource("3_gqd3d")
+
+[connection signal="area_entered" from="contactArea2D" to="." method="_on_contact_area_2d_area_entered"]
+[connection signal="body_entered" from="contactArea2D" to="." method="_on_contact_area_2d_body_entered"]

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ci6p3p616lhbm"]
+
+[ext_resource type="Script" uid="uid://chwgecdbrhpo" path="res://scripts/title_scene.gd" id="1_l8sac"]
+[ext_resource type="FontFile" uid="uid://dgl06k4aykg1d" path="res://assets/placeholder/seriesorbit/SERIO___.TTF" id="3_bq8jb"]
+[ext_resource type="AudioStream" uid="uid://cy70swk6kdgte" path="res://assets/sfx/NeverMissFIRE.ogg" id="3_l8sac"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4k7ef"]
+load_path = "res://.godot/imported/title_splash.png-948e3b5af8fa76ba087b577c367109b6.ctex"
+
+[node name="TitleScene" type="Node2D" unique_id=1437976761]
+script = ExtResource("1_l8sac")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1164932069]
+
+[node name="Splash" type="Sprite2D" parent="CanvasLayer" unique_id=783657565]
+position = Vector2(576, 324)
+texture = SubResource("CompressedTexture2D_4k7ef")
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1703259892]
+offset_left = 138.0
+offset_top = 517.0
+offset_right = 319.0
+offset_bottom = 608.0
+theme_override_colors/font_color = Color(0, 0.45490196, 0.91764706, 1)
+theme_override_fonts/font = ExtResource("3_bq8jb")
+theme_override_font_sizes/font_size = 81
+text = "Play"
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=1063135975]
+stream = ExtResource("3_l8sac")
+bus = &"Music"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

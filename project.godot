@@ -11,14 +11,22 @@ config_version=5
 [application]
 
 config/name="DiverDown"
-run/main_scene="uid://c1bun47e3hs2q"
+run/main_scene="uid://ci6p3p616lhbm"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://bukur01fx114e"
+
+[audio]
+
+buses/default_bus_layout="uid://3y2l4xb8djkm"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[global_group]
+
+diver="player group"
 
 [input]
 
@@ -56,3 +64,4 @@ down={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.19469999, 0.37917334, 0.59, 1)

@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://csasvwndy0k5k"]
+
+[ext_resource type="Script" uid="uid://bh1wf4idkj1an" path="res://scripts/air_bubble.gd" id="1_5t6o6"]
+[ext_resource type="Texture2D" uid="uid://c0icmv7mak7nc" path="res://assets/air_bubble.png" id="1_ts5rh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t6o6"]
+atlas = ExtResource("1_ts5rh")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ovj"]
+atlas = ExtResource("1_ts5rh")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg6fx"]
+atlas = ExtResource("1_ts5rh")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4376u"]
+atlas = ExtResource("1_ts5rh")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26bla"]
+atlas = ExtResource("1_ts5rh")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukt4q"]
+atlas = ExtResource("1_ts5rh")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ejl8"]
+atlas = ExtResource("1_ts5rh")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qu30y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t6o6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ovj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rg6fx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4376u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26bla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukt4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ejl8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qu30y"]
+radius = 25.0
+
+[node name="AirBubble" type="Node2D" unique_id=295739849]
+script = ExtResource("1_5t6o6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827139781]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_qu30y")
+autoplay = "default"
+frame_progress = 0.92318344
+
+[node name="Area2D" type="Area2D" parent="." unique_id=131736929]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=8044085]
+shape = SubResource("CircleShape2D_qu30y")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
